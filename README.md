@@ -1,11 +1,11 @@
-# Algorítmo genético aplicado ao problema da mochila binária
+# Algoritmo genético aplicado ao problema da mochila binária
 Exemplo que apresenta uma possível implementação de "Algoritmo Genético" para resolver o "Problema da Mochila"
 
 ## O que é o Problema da Mochila?
 O problema da mochila (em inglês Knapsack problem) é um problema de otimização combinatória. Metaforicamente podemos entendê-lo como o desafio de encher uma mochila sem ultrapassar um determinado limite de peso, otimizando o somatório do valor dos produtos carregados
 
 ## O que é um Algoritmo Genético?
-O algoritmo genético é uma das técnicas da computação evolucionária de busca e otimização inspirada na evolução natural das espécies de Darwin. A idéia é criar uma população de indivíduos que vão se reproduzir e competir pela sobrevivência, onde os melhores indivíduos sobrevivem e transferem suas características para novas gerações, até que se alcance uma solução próxima ao resultado ótimo (Pozo et al. 2003)
+O algoritmo genético é uma das técnicas da computação evolucionária de busca e otimização inspirada na evolução natural das espécies de Darwin. A ideia é criar uma população de indivíduos que vão se reproduzir e competir pela sobrevivência, onde os melhores indivíduos sobrevivem e transferem suas características para novas gerações, até que se alcance uma solução próxima ao resultado ótimo (Pozo et al. 2003)
 
 ## Definições do algoritmo:
 
