@@ -1,5 +1,5 @@
 <?php
-require('AlgoritmoGenetico\Controller\ControllerAlgoritmoGeneticoMochila.php');
+require('src/controller/controller_algoritmo_genetico_mochila.php');
 /* 
  * Index para a execução do algorítmo
  * 

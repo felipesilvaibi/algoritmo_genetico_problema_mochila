@@ -82,22 +82,22 @@ class ControllerAlgoritmoGeneticoMochila {
     /**
      * Cria a lista de tipos de gene do cromossomo (equivalente aos possíveis objetos da mochila)
      * 
-     * @tutorial 1. Faz o require de todos os arquivos da pasta Model (que extendem do ModelObjetoMochilaBase)
+     * @tutorial 1. Faz o require de todos os arquivos da pasta Model (que extendem ModelObjetoMochilaBase)
      *           2. Atribui ao array de tipos de gene uma instância de cada objeto (exceto ModelObjetoMochilaBase.php)
      */
     private function criaListaTipoGeneCromossomo() {
         /* Informar o caminho até a pasta Model (modelos de objeto da mochila) */
-        $sDiretorioPadraoObjetosMochila = 'AlgoritmoGenetico\Model\\';
+        $sDiretorioPadraoObjetosMochila = 'src/model/';
         $aDirPhpFiles                   = glob($sDiretorioPadraoObjetosMochila . '*.php');
 
         $this->tiposGene = [];
         foreach ($aDirPhpFiles as $sDirPhpFile) {
             $sNomeArquivo = str_replace($sDiretorioPadraoObjetosMochila, '', $sDirPhpFile);
             require $sDiretorioPadraoObjetosMochila . $sNomeArquivo;
-            
-            if ($this->isArquivoObjetoInstanciavel($sNomeArquivo)) {
-                $sNomeArquivoObjetoCriacao = str_replace('.php', '', $sNomeArquivo);
-                $this->tiposGene[] = new $sNomeArquivoObjetoCriacao();
+
+            $sNomeClasse = preg_replace('/\s+/', '', (ucwords(str_replace('_', ' ', str_replace('.php', '', $sNomeArquivo)))));
+            if ($this->isArquivoObjetoInstanciavel($sNomeClasse)) {
+                $this->tiposGene[] = new $sNomeClasse();
             }
         }
     }
@@ -109,7 +109,8 @@ class ControllerAlgoritmoGeneticoMochila {
      * @return boolean
      */
     private function isArquivoObjetoInstanciavel($sNomeArquivo) {
-        return !($sNomeArquivo == 'ModelObjetoMochilaBase.php');
+        $oReflectionClass = new ReflectionClass($sNomeArquivo);
+        return !$oReflectionClass->isAbstract();
     }
     
     /**
